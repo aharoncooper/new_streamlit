@@ -1,10 +1,15 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
 
 st.write("""
 # My first app
 Hello *world!*
 """)
 
-df = pd.read_csv("my_data.csv")
+st.date_input('what is the most amazing date?')
+
+df = sns.load_dataset("dowjones")
+df= df.set_index('Date')
+print(df)
 st.line_chart(df)
